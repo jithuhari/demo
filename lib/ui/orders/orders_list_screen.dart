@@ -20,6 +20,7 @@ class OrdersListScreen extends StatelessWidget {
     "Pending",
     "Processing",
     "Delivered",
+    "Cancelled"
   ];
 
   @override
@@ -76,7 +77,7 @@ class OrdersListScreen extends StatelessWidget {
         physics: const AlwaysScrollableScrollPhysics(),
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
-        itemCount: 4,
+        itemCount: 5,
         itemBuilder: (BuildContext context, int index) {
           return Container(
             decoration: AppDecoration.decorationColoredRadius20(

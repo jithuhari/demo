@@ -7,6 +7,7 @@ import '../../resources/app_strings.dart';
 import '../../resources/drawables.dart';
 import '../../util/app_appbar.dart';
 import '../../util/app_decorations.dart';
+import '../../util/app_dropdown_textform_field_underline.dart';
 import '../../util/custom_sized_boxes.dart';
 import '../../util/custom_text_widget.dart';
 import '../../util/widget_utils.dart';
@@ -24,6 +25,15 @@ class ProductListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CircleAvatar(
+            radius: 30,
+            backgroundColor: AppColors.primaryColor,
+            child: const Icon(Icons.add,color: Colors.white,size: 40,)),
+        ],
+      ),
         backgroundColor: AppColors.bgGreenColor,
         appBar: CustomAppBar(
             autoLeading: false,
@@ -53,7 +63,54 @@ class ProductListScreen extends StatelessWidget {
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           padding: const EdgeInsets.all(20),
-          children: [verticalScroll()],
+          children: [
+            Row(
+              children:  [
+                const Text('Category'),
+                const Spacer(),
+                SizedBox(
+                  width: 110,
+                  height: 40,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(5)
+                    ),
+                    
+                    child: const DropdownField(
+                        hintText: AppStrings.shopType,
+                        value: "Packed Food",
+                        options: [
+                          "Packed Food",
+                          "SuperMarket",
+                        ],
+                      ),
+                  ),
+                ),
+                const Spacer(),
+                 const Text('Sort by '),
+                 const Spacer(),
+                 SizedBox(
+                  width: 100,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(5)
+                    ),
+                    child: const DropdownField(
+                        hintText: AppStrings.shopType,
+                        value: "Availability",
+                        options: [
+                          "Availability",
+                          "SuperMarket",
+                        ],
+                      ),
+                  ),
+                )
+              ],
+            ),
+
+            verticalScroll()],
         ));
   }
 
