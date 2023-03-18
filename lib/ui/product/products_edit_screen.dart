@@ -23,16 +23,25 @@ class ProductEditScreen extends StatelessWidget {
           shrinkWrap: true,
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
           children: [
-            item (),
+            item(),
 
+
+
+            _bottomButton()
           ],
         ));
   }
-  Widget item (){
+
+  Widget productImage(){
+    return Container();
+  }
+
+  Widget item() {
     return DecoratedBox(
-      decoration: AppDecoration.decorationColoredButtonRadius10(color: AppColors.bgColor),
+      decoration: AppDecoration.decorationColoredButtonRadius10(
+          color: AppColors.bgColor),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 17,vertical: 13),
+        padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 13),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -44,68 +53,47 @@ class ProductEditScreen extends StatelessWidget {
             const SizedBoxH24(),
             _field3(),
             const SizedBoxH24(),
+            const Text('Category'),
             _field4(),
             const SizedBoxH24(),
-            _field5(),
-            const SizedBoxH24(),
-            _catogory(),
-            const SizedBoxH24(),
-            _subCatogory(),
-            const SizedBoxH24(),
-            _attribute(),
-            const SizedBoxH24(),
-            _volume(),
-            const SizedBoxH24(),
-            _field8()
+            _field5()
           ],
         ),
       ),
     );
   }
-  Widget _field3(){
+
+  Widget _field3() {
     return Row(
       children: [
-        Expanded(flex:1,child: sellingPrice()),
-        Expanded(flex:1,child: _unit())
-
+        Expanded(flex: 1, child: sellingPrice()),
+        const Spacer(),
+        Expanded(flex: 1, child: time())
       ],
     );
   }
-  Widget _field4(){
+
+  Widget _field4() {
     return Row(
       children: [
-        Expanded(flex:1,child: _tax()),
-        Expanded(flex:1,child: _taxType())
-
+        Expanded(flex: 1, child: category())
       ],
     );
   }
-  Widget _field5(){
+
+   Widget _field5() {
     return Row(
       children: [
-        Expanded(flex:1,child: _discount()),
-        Expanded(flex:1,child: _discountType())
-
+        RadiobuttonWidget(),
+        const Text('Collect Area')
       ],
     );
   }
-  Widget _field8(){
-    return DecoratedBox(
-      decoration: AppDecoration.decorationColoredButtonRadius8(color: AppColors.editProductBg),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(19, 11, 19, 24),
-        child: Row(
-          children: [
-            Expanded(flex:1,child: _variant()),
-            Expanded(flex:1,child: _variantPrice())
 
-          ],
-        ),
-      ),
-    );
-  }
   Widget productName() {
-    return AppTextFormFieldUnderLine(label: AppStrings.name,
+    return AppTextFormFieldUnderLine(
+      label: AppStrings.name,
+      initialValue: 'Gardening Services',
       // controller: _contactUsController?.phoneController,
       hint: AppStrings.name,
       // autoValidate: data == PageState.validationError,
@@ -113,159 +101,83 @@ class ProductEditScreen extends StatelessWidget {
       inputType: TextInputType.text, borderColor: Colors.black.withOpacity(.3),
     );
   }
+
   Widget productDescription() {
     return AppTextFormFieldUnderLine(
       // controller: _contactUsController?.phoneController,
       label: AppStrings.shortDescription,
       hint: AppStrings.shortDescription,
+      initialValue: 'This Is A Description',
       // autoValidate: data == PageState.validationError,
       // validator: Validator.isValidMobileNumber,
       inputType: TextInputType.text, borderColor: Colors.black.withOpacity(.3),
     );
   }
+
   Widget sellingPrice() {
     return AppTextFormFieldUnderLine(
       // controller: _contactUsController?.phoneController,
-      label:AppStrings.sellingPrice,
+      label: AppStrings.sellingPrice,
       hint: AppStrings.sellingPrice,
+      initialValue: '135',
       // autoValidate: data == PageState.validationError,
       // validator: Validator.isValidMobileNumber,
       inputType: TextInputType.text, borderColor: Colors.black.withOpacity(.3),
     );
   }
 
-  Widget _tax() {
+  Widget time() {
     return AppTextFormFieldUnderLine(
       // controller: _contactUsController?.phoneController,
-      hint: AppStrings.tax,
-      label: AppStrings.tax,
+      label: 'Time',
+      hint: 'Time',
+      initialValue: '60',
       // autoValidate: data == PageState.validationError,
       // validator: Validator.isValidMobileNumber,
-      inputType: TextInputType.number,
-      borderColor: Colors.black.withOpacity(.3),
-    );
-  }
-  Widget _discount() {
-    return AppTextFormFieldUnderLine(
-      // controller: _contactUsController?.phoneController,
-      hint: AppStrings.discount,
-      label: AppStrings.discount,
-      // autoValidate: data == PageState.validationError,
-      // validator: Validator.isValidMobileNumber,
-      inputType: TextInputType.number,
-      borderColor: Colors.black.withOpacity(.3),
-    );
-  }
-  Widget _variant() {
-    return AppTextFormFieldUnderLine(
-      // controller: _contactUsController?.phoneController,
-      hint: AppStrings.variant,
-      label: AppStrings.variant,
-      // autoValidate: data == PageState.validationError,
-      // validator: Validator.isValidMobileNumber,
-      inputType: TextInputType.number,
-      borderColor: Colors.black.withOpacity(.3),
-    );
-  }
-  Widget _variantPrice() {
-    return AppTextFormFieldUnderLine(
-      // controller: _contactUsController?.phoneController,
-      hint: AppStrings.variantPrice,
-      label: AppStrings.variantPrice,
-      // autoValidate: data == PageState.validationError,
-      // validator: Validator.isValidMobileNumber,
-      inputType: TextInputType.number,
-      borderColor: Colors.black.withOpacity(.3),
+      inputType: TextInputType.text, borderColor: Colors.black.withOpacity(.3),
     );
   }
 
+  
 
-
-  Widget _unit() {
-    return const DropdownField(
-      hintText: AppStrings.unit,
-      value:"Kilo Grams" ,
-      options: [
-        "Kilo Grams",
-        "Litre",
-      ],
-    );
-  }
-  Widget _taxType() {
+  Widget category() {
     return const DropdownField(
       hintText: AppStrings.taxTyp,
-      value:"Percent" ,
+      value: "Gardening",
       options: [
-        "Percent",
-        "Accumulated",
+        "Gardening",
+        "Planting",
       ],
     );
   }
+
+   Widget RadiobuttonWidget() {
+    return Radio(value: 'collect Area', groupValue: 'collect Area', onChanged: (item ){
+      item= 'collectArea';
+    });
+  }
+
   Widget _discountType() {
     return const DropdownField(
       hintText: AppStrings.discountTyp,
-      value:"Percent" ,
+      value: "Percent",
       options: [
         "Percent",
         "Accumulated",
       ],
     );
   }
-  Widget _catogory() {
-    return const DropdownField(
-      hintText: AppStrings.category,
-      value:"Packaged Food" ,
-      options: [
-        "Packaged Food",
-      ],
-    );
-  }
-  Widget _subCatogory() {
-    return const DropdownField(
-      hintText: AppStrings.subCategory,
-      value:"Noodles & Pasta" ,
-      options: [
-        "Noodles & Pasta",
-      ],
-    );
-  }
-  Widget _attribute() {
-    return const DropdownField(
-      hintText: AppStrings.attribute,
-      value:"Volume" ,
-      options: [
-        "Volume",
-      ],
-    );
-  }
-  Widget _volume() {
-    return const DropdownField(
-      hintText: AppStrings.volume,
-      value:"10" ,
-      options: [
-        "10",
-      ],
-    );
-  }
 
-  Widget _bottomButtons() {
+  Widget _bottomButton() {
     return Padding(
       padding: const EdgeInsets.all(24),
       child: Row(
         children: [
           Expanded(
             flex: 1,
-            child: WidgetUtils.coloredButton(
-                color: AppColors.basicDetailsButtonColor,
-                text: AppStrings.back,
-                textColor: AppColors.loginButtonColor),
-          ),
-          const SizedBoxW10(),
-          Expanded(
-            flex: 1,
             child: WidgetUtils.linearGradiantButton(
                 textColor: AppColors.bgColor,
-                text: AppStrings.next,
+                text: 'Update',
                 gradient: AppColors.loginCardGradient),
           ),
         ],
