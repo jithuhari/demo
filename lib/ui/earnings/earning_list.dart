@@ -11,7 +11,7 @@ class EarningList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:const  CustomAppBar(),
+      
       body: SafeArea(child: Center(child: Container(child: Text("earing screen")),)),
     );
   }

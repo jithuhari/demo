@@ -15,7 +15,7 @@ class SettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bgGreenColor,
-      appBar: const CustomAppBar(),
+      
       body: ListView(
         shrinkWrap: true,
         padding: const EdgeInsets.all(20),
