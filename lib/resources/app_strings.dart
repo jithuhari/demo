@@ -63,6 +63,7 @@ class AppStrings {
   static const String delivered = "Delivered";
   static const String totalOrders = "126 Orders";
   static const String orderId = "Order#100313254";
+  static const String bookingId = "Booking#100313254";
   static const String removeItem = "Remove Item";
 
   ///order details

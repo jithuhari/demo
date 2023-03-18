@@ -26,85 +26,161 @@ class ProductListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          GestureDetector(
-            onTap:(){
-
-               Get.to( ProductEditScreen() );
-            } ,
-            child: CircleAvatar(
-              radius: 30,
-              backgroundColor: AppColors.primaryColor,
-              child: const Icon(Icons.add,color: Colors.white,size: 40,)),
-          ),
-        ],
-      ),
-        backgroundColor: AppColors.bgGreenColor,
-        
-        body: ListView(
-          physics: const NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          padding: const EdgeInsets.all(20),
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+            backgroundColor: Colors.white,
+            toolbarHeight: 0,
+            bottom: TabBar(
+              indicatorWeight: 6,
+              indicatorColor: AppColors.primaryColor,
+            labelColor: AppColors.primaryColor,
+            tabs: const [
+            Tab(text: 'Products',),
+            Tab(text: 'Services',),
+          ]),),
+        floatingActionButton: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Row(
-              children:  [
-                const Text('Category'),
-                const Spacer(),
-                SizedBox(
-                  width: 110,
-                  height: 40,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(5)
-                    ),
-                    
-                    child: const DropdownField(
-                        hintText: AppStrings.shopType,
-                        value: "Packed Food",
-                        options: [
-                          "Packed Food",
-                          "SuperMarket",
-                        ],
-                      ),
-                  ),
-                ),
-                const Spacer(),
-                 const Text('Sort by '),
-                 const Spacer(),
-                 SizedBox(
-                  width: 100,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(5)
-                    ),
-                    child: const DropdownField(
-                        hintText: AppStrings.shopType,
-                        value: "Availability",
-                        options: [
-                          "Availability",
-                          "SuperMarket",
-                        ],
-                      ),
-                  ),
-                )
-              ],
+            GestureDetector(
+              onTap:(){
+    
+                 Get.to( ProductEditScreen() );
+              } ,
+              child: CircleAvatar(
+                radius: 30,
+                backgroundColor: AppColors.primaryColor,
+                child: const Icon(Icons.add,color: Colors.white,size: 40,)),
             ),
+          ],
+        ),
+          backgroundColor: AppColors.bgGreenColor,
+          
+          body: TabBarView(
+            children: 
+              [
+                // products
+                ListView(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                padding: const EdgeInsets.all(20),
+                children: [
+                  Row(
+                    children:  [
+                      const Text('Category'),
+                      const Spacer(),
+                      SizedBox(
+                        width: 110,
+                        height: 40,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(5)
+                          ),
+                          
+                          child: const DropdownField(
+                              hintText: AppStrings.shopType,
+                              value: "Gardening",
+                              options: [
+                                "Gardening",
+                                "SuperMarket",
+                              ],
+                            ),
+                        ),
+                      ),
+                      const Spacer(),
+                       const Text('Sort by '),
+                       const Spacer(),
+                       SizedBox(
+                        width: 100,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(5)
+                          ),
+                          child: const DropdownField(
+                              hintText: AppStrings.shopType,
+                              value: "Availability",
+                              options: [
+                                "Availability",
+                                "SuperMarket",
+                              ],
+                            ),
+                        ),
+                      )
+                    ],
+                  ),
+                
+                  verticalScrollproducts()],
+              ),
 
-            verticalScroll()],
-        ));
+              //Services
+
+              ListView(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                padding: const EdgeInsets.all(20),
+                children: [
+                  Row(
+                    children:  [
+                      const Text('Category'),
+                      const Spacer(),
+                      SizedBox(
+                        width: 110,
+                        height: 40,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(5)
+                          ),
+                          
+                          child: const DropdownField(
+                              hintText: AppStrings.shopType,
+                              value: "Gardening",
+                              options: [
+                                "Gardening",
+                                "SuperMarket",
+                              ],
+                            ),
+                        ),
+                      ),
+                      const Spacer(),
+                       const Text('Sort by '),
+                       const Spacer(),
+                       SizedBox(
+                        width: 100,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(5)
+                          ),
+                          child: const DropdownField(
+                              hintText: AppStrings.shopType,
+                              value: "Availability",
+                              options: [
+                                "Availability",
+                                "SuperMarket",
+                              ],
+                            ),
+                        ),
+                      )
+                    ],
+                  ),
+                
+                  verticalScrollServices()],
+              ),
+            ],
+          )),
+    );
   }
 
-  Widget verticalScroll() {
+  Widget verticalScrollproducts() {
     return ListView.separated(
       physics: const AlwaysScrollableScrollPhysics(),
       shrinkWrap: true,
       scrollDirection: Axis.vertical,
-      itemCount: 4,
+      itemCount: 2,
       itemBuilder: (BuildContext context, int index) {
         return Container(
             decoration: AppDecoration.decorationColoredButtonRadius10(
@@ -206,6 +282,137 @@ class ProductListScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               TextPOP12W400("Status",
+                                  textAlign: TextAlign.left,
+                                  color: AppColors.textDarkGrayColor),
+                              SizedBox(
+                                height: 24,
+                                width: 36,
+                                child: Switch(
+                                  activeColor: Colors.green,
+                                  inactiveThumbColor: Colors.greenAccent,
+                                  value: true,
+                                  onChanged: (bool value) {},
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              )
+            ]));
+      },
+      separatorBuilder: (BuildContext context, int index) {
+        return const SizedBoxH10();
+      },
+    );
+  }
+
+
+
+  Widget verticalScrollServices() {
+    return ListView.separated(
+      physics: const AlwaysScrollableScrollPhysics(),
+      shrinkWrap: true,
+      scrollDirection: Axis.vertical,
+      itemCount: 1,
+      itemBuilder: (BuildContext context, int index) {
+        return Container(
+            decoration: AppDecoration.decorationColoredButtonRadius10(
+                color: AppColors.bgColor),
+            padding: const EdgeInsets.fromLTRB(10, 10, 10, 9),
+            child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Image.asset(
+                    Drawables.productcactusplant,
+                    width: 88,
+                    height: 75,
+                  ),
+                 
+                 
+                ],
+              ),
+              const SizedBoxW15(),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    TextPOP17W500("Gardening Services",
+                        textAlign: TextAlign.left,
+                        color: AppColors.textDarkGrayColor),
+                    const SizedBox(height: 8),
+                    TextPOP14W400("Service Id: 615645645641",
+                        textAlign: TextAlign.left,
+                        color: AppColors.textDarkGrayColor.withOpacity(.3)),
+                    const SizedBox(height: 8),
+                    Row(
+                      children: [
+                        Expanded(
+                          flex: 2,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              TextPOP12W400("Booking Fee",
+                                  textAlign: TextAlign.left,
+                                  color: AppColors.textDarkGrayColor
+                                      .withOpacity(.7)),
+                              const SizedBox(height: 2),
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  TextPOP18W500("₹200",
+                                      color: AppColors.textPrimary3),
+                                  const SizedBox(width: 5),
+                                  Image.asset(Drawables.pencil,
+                                      height: 10,
+                                      fit: BoxFit.contain,
+                                      color: AppColors.textPrimary3)
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          flex: 2,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              TextPOP12W400("Time",
+                                  textAlign: TextAlign.left,
+                                  color: AppColors.textDarkGrayColor
+                                      .withOpacity(.7)),
+                              const SizedBox(height: 2),
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  TextPOP18W500("1 hr",
+                                      color: AppColors.textPrimary3),
+                                  const SizedBox(width: 5),
+                                  Image.asset(Drawables.pencil,
+                                      height: 10,
+                                      fit: BoxFit.contain,
+                                      color: AppColors.textPrimary3)
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              TextPOP12W400("Availability",
                                   textAlign: TextAlign.left,
                                   color: AppColors.textDarkGrayColor),
                               SizedBox(

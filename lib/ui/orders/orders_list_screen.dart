@@ -59,7 +59,7 @@ class OrdersListScreen extends StatelessWidget {
                   TextPOP14W400(AppStrings.totalOrders,
                       textAlign: TextAlign.left, color: AppColors.textDarkGrayColor),
                   const SizedBox(height: 8),
-                  verticalScroll()
+                  verticalScrollOrder()
                 ],
               ),
 
@@ -76,7 +76,7 @@ class OrdersListScreen extends StatelessWidget {
                   TextPOP14W400(AppStrings.totalOrders,
                       textAlign: TextAlign.left, color: AppColors.textDarkGrayColor),
                   const SizedBox(height: 8),
-                  verticalScroll()
+                  verticalScrollBooking()
                 ],
               ),
             ],
@@ -114,7 +114,7 @@ class OrdersListScreen extends StatelessWidget {
     );
   }
 
-  Widget verticalScroll() {
+  Widget verticalScrollOrder() {
     return ListView.separated(
       physics: const AlwaysScrollableScrollPhysics(),
       shrinkWrap: true,
@@ -194,6 +194,90 @@ class OrdersListScreen extends StatelessWidget {
       },
     );
   }
+
+
+  Widget verticalScrollBooking() {
+    return ListView.separated(
+      physics: const AlwaysScrollableScrollPhysics(),
+      shrinkWrap: true,
+      scrollDirection: Axis.vertical,
+      itemCount: 4,
+      itemBuilder: (BuildContext context, int index) {
+        return Container(
+            decoration: AppDecoration.decorationColoredButtonRadius10(
+                color: AppColors.bgColor),
+            padding: const EdgeInsets.fromLTRB(12, 11, 12, 13),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TextPOP16W400(AppStrings.bookingId,
+                        textAlign: TextAlign.left,
+                        color: AppColors.textDarkGrayColor),
+                    TextPOP20W500("₹354", color: AppColors.textPrimary3),
+                  ],
+                ),
+                const SizedBox(height: 2),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TextPOP14W400("12:05 PM | Jan 5",
+                        color: AppColors.textDarkGrayColor.withOpacity(.4)),
+                    Container(
+                      padding: const EdgeInsets.fromLTRB(10, 3, 10, 2),
+                      width: 96,
+                      decoration:
+                          AppDecoration.decorationColoredButtonRadius4(
+                              color: AppColors.primaryLoginGradiantColor),
+                      child: Row(
+                        children: [
+                          TextPOP12W400("Processing",
+                              color: AppColors.bgColor),
+                          const SizedBox(width: 2),
+                          Image.asset(
+                            Drawables.pencil,
+                            height: 11,
+                            fit: BoxFit.contain,
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 6),
+                Row(
+                  children: [
+                    const DecoratedBox(
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle, color: Colors.red),
+                      child: SizedBox(width: 6, height: 6),
+                    ),
+                    const SizedBox(width: 6),
+                    TextPOP12W400("Not Paid", color: AppColors.textRedColor),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: TextPOP12W400(
+                        "Cash on delivery",
+                        color: AppColors.textDarkGrayColor.withOpacity(.4),
+                        textAlign: TextAlign.start,
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    _viewOrderDetails()
+                  ],
+                ),
+              ],
+            ));
+      },
+      separatorBuilder: (BuildContext context, int index) {
+        return const SizedBoxH10();
+      },
+    );
+  }
+
+
   Widget _viewOrderDetails(){
     return GestureDetector(
       onTap: (){
