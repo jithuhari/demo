@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/svg.dart';
 
+import '../../resources/drawables.dart';
+import '../../util/app_appbar.dart';
+import '../../util/app_decorations.dart';
+import '../../util/widget_utils.dart';
 import '../earnings/earning_list.dart';
 import '../login/settings_screen.dart';
 import '../orders/orders_list_screen.dart';
@@ -32,6 +36,30 @@ class _BottomNavScreenProductState extends State<BottomNavScreenProduct> {
 
     int index;
     return Scaffold(
+      appBar: CustomAppBar(
+            autoLeading: false,
+            leadingWidget: WidgetUtils.widgets(
+                child: Container(
+              margin: const EdgeInsets.all(12),
+              height: 40,
+              width: 40,
+              decoration: AppDecoration.decorationCircle(color: Colors.red),
+              clipBehavior: Clip.antiAlias,
+              alignment: Alignment.center,
+              child: Image.asset(
+                Drawables.avatar,
+                fit: BoxFit.contain,
+              ),
+            )),
+            actionWidget: WidgetUtils.widgets(
+                child: Padding(
+              padding: const EdgeInsets.all(18),
+              child: Image.asset(
+                Drawables.bellIcon,
+                height: 27,
+                width: 23.5,
+              ),
+            ))),
       body:screens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         

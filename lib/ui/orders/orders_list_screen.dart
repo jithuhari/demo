@@ -25,47 +25,63 @@ class OrdersListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: AppColors.bgGreenColor,
-        appBar: CustomAppBar(
-            autoLeading: false,
-            leadingWidget: WidgetUtils.widgets(
-                child: Container(
-              margin: const EdgeInsets.all(12),
-              height: 40,
-              width: 40,
-              decoration: AppDecoration.decorationCircle(color: Colors.red),
-              clipBehavior: Clip.antiAlias,
-              alignment: Alignment.center,
-              child: Image.asset(
-                Drawables.avatar,
-                fit: BoxFit.contain,
+    return DefaultTabController(
+
+      length: 2,
+      child: Scaffold(
+        
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          toolbarHeight: 0,
+          bottom: TabBar(
+            indicatorWeight: 6,
+            indicatorColor: AppColors.primaryColor,
+          labelColor: AppColors.primaryColor,
+          tabs: const [
+          Tab(text: 'Products',),
+          Tab(text: 'Services',),
+        ]),),
+          backgroundColor: AppColors.bgGreenColor,
+          
+          body: TabBarView(
+            children: 
+              [
+                //products
+                ListView(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                padding: const EdgeInsets.only(left: 20),
+                children: [
+                  horizontalScroll(
+                      color: Colors.black,
+                      title: AppStrings.all,
+                      bgColor: Colors.white),
+                  TextPOP14W400(AppStrings.totalOrders,
+                      textAlign: TextAlign.left, color: AppColors.textDarkGrayColor),
+                  const SizedBox(height: 8),
+                  verticalScroll()
+                ],
               ),
-            )),
-            actionWidget: WidgetUtils.widgets(
-                child: Padding(
-              padding: const EdgeInsets.all(18),
-              child: Image.asset(
-                Drawables.bellIcon,
-                height: 27,
-                width: 23.5,
+
+              // Services
+              ListView(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                padding: const EdgeInsets.only(left: 20),
+                children: [
+                  horizontalScroll(
+                      color: Colors.black,
+                      title: AppStrings.all,
+                      bgColor: Colors.white),
+                  TextPOP14W400(AppStrings.totalOrders,
+                      textAlign: TextAlign.left, color: AppColors.textDarkGrayColor),
+                  const SizedBox(height: 8),
+                  verticalScroll()
+                ],
               ),
-            ))),
-        body: ListView(
-          physics: const NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          padding: const EdgeInsets.only(left: 20),
-          children: [
-            horizontalScroll(
-                color: Colors.black,
-                title: AppStrings.all,
-                bgColor: Colors.white),
-            TextPOP14W400(AppStrings.totalOrders,
-                textAlign: TextAlign.left, color: AppColors.textDarkGrayColor),
-            const SizedBox(height: 8),
-            verticalScroll()
-          ],
-        ));
+            ],
+          )),
+    );
   }
 
   Widget horizontalScroll(
