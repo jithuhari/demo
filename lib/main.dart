@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:orgayur_vendor_app/resources/app_colors.dart';
-import 'package:orgayur_vendor_app/ui/product/products_edit_screen.dart';
+
 import 'package:provider/provider.dart';
 
 import 'controller/app_controller.dart';
 import 'resources/app_strings.dart';
-import 'ui/homescreen/service_home_sreen.dart';
+
 import 'ui/splash/splash_screen.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = new GlobalKey<NavigatorState>();
@@ -38,9 +38,9 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(primarySwatch: AppColors.primarySwatchColor),
       navigatorKey: navigatorKey,
       home:  
-      // BottomNavScreenService()
+    
       
-       const SplashScreen(),
+        const SplashScreen(),
     );
   }
 }

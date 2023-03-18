@@ -41,8 +41,8 @@ class _BottomNavScreenProductState extends State<BottomNavScreenProduct> {
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.green,
         unselectedItemColor: Colors.black,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
 
         items:   [
         

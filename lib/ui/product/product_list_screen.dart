@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:orgayur_vendor_app/ui/product/products_edit_screen.dart';
 
 
 import '../../resources/app_colors.dart';
@@ -28,10 +30,16 @@ class ProductListScreen extends StatelessWidget {
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CircleAvatar(
-            radius: 30,
-            backgroundColor: AppColors.primaryColor,
-            child: const Icon(Icons.add,color: Colors.white,size: 40,)),
+          GestureDetector(
+            onTap:(){
+
+               Get.to( ProductEditScreen() );
+            } ,
+            child: CircleAvatar(
+              radius: 30,
+              backgroundColor: AppColors.primaryColor,
+              child: const Icon(Icons.add,color: Colors.white,size: 40,)),
+          ),
         ],
       ),
         backgroundColor: AppColors.bgGreenColor,
@@ -131,7 +139,7 @@ class ProductListScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Image.asset(
-                    Drawables.productBoost,
+                    Drawables.productcactusplant,
                     width: 88,
                     height: 75,
                   ),
@@ -151,7 +159,7 @@ class ProductListScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    TextPOP17W500("Yippee Noodles Magic masala family pack 50g",
+                    TextPOP17W500("Cactus Plant with Ceramic Pot Green Color",
                         textAlign: TextAlign.left,
                         color: AppColors.textDarkGrayColor),
                     const SizedBox(height: 8),

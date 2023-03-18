@@ -27,7 +27,7 @@ class Drawables {
   static const String radio = "assets/icons/radio.png";
   ///products
 
-  static const String productBoost = "assets/icons/product_boost.png";
+  static const String productcactusplant = "assets/product/cactus_plant.png";
 
   ///order details
   static const String downloadIcon = "assets/icons/DownloadIcon.png";
