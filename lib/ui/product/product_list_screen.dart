@@ -43,30 +43,7 @@ class ProductListScreen extends StatelessWidget {
         ],
       ),
         backgroundColor: AppColors.bgGreenColor,
-        appBar: CustomAppBar(
-            autoLeading: false,
-            leadingWidget: WidgetUtils.widgets(
-                child: Container(
-              margin: const EdgeInsets.all(12),
-              height: 40,
-              width: 40,
-              decoration: AppDecoration.decorationCircle(color: Colors.red),
-              clipBehavior: Clip.antiAlias,
-              alignment: Alignment.center,
-              child: Image.asset(
-                Drawables.avatar,
-                fit: BoxFit.contain,
-              ),
-            )),
-            actionWidget: WidgetUtils.widgets(
-                child: Padding(
-              padding: const EdgeInsets.all(18),
-              child: Image.asset(
-                Drawables.bellIcon,
-                height: 27,
-                width: 23.5,
-              ),
-            ))),
+        
         body: ListView(
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
