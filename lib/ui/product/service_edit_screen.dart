@@ -10,8 +10,8 @@ import '../../util/app_textform_field_underline.dart';
 import '../../util/custom_sized_boxes.dart';
 import '../../util/widget_utils.dart';
 
-class ProductEditScreen extends StatelessWidget {
-  ProductEditScreen({Key? key}) : super(key: key);
+class ServiceEditScreen extends StatelessWidget {
+  ServiceEditScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,17 +22,11 @@ class ProductEditScreen extends StatelessWidget {
           physics: const AlwaysScrollableScrollPhysics(),
           shrinkWrap: true,
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-          children: [
-            item(),
-
-
-
-            _bottomButton()
-          ],
+          children: [item(), _bottomButton()],
         ));
   }
 
-  Widget productImage(){
+  Widget productImage() {
     return Container();
   }
 
@@ -75,18 +69,13 @@ class ProductEditScreen extends StatelessWidget {
 
   Widget _field4() {
     return Row(
-      children: [
-        Expanded(flex: 1, child: category())
-      ],
+      children: [Expanded(flex: 1, child: category())],
     );
   }
 
-   Widget _field5() {
+  Widget _field5() {
     return Row(
-      children: [
-        RadiobuttonWidget(),
-        const Text('Collect Area')
-      ],
+      children: [RadiobuttonWidget(), const Text('Collect Area')],
     );
   }
 
@@ -138,8 +127,6 @@ class ProductEditScreen extends StatelessWidget {
     );
   }
 
-  
-
   Widget category() {
     return const DropdownField(
       hintText: AppStrings.taxTyp,
@@ -151,10 +138,13 @@ class ProductEditScreen extends StatelessWidget {
     );
   }
 
-   Widget RadiobuttonWidget() {
-    return Radio(value: 'collect Area', groupValue: 'collect Area', onChanged: (item ){
-      item= 'collectArea';
-    });
+  Widget RadiobuttonWidget() {
+    return Radio(
+        value: 'collect Area',
+        groupValue: 'collect Area',
+        onChanged: (item) {
+          item = 'collectArea';
+        });
   }
 
   Widget _discountType() {

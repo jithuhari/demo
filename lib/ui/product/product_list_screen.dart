@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:orgayur_vendor_app/ui/product/products_edit_screen.dart';
+import 'package:orgayur_vendor_app/ui/product/product_edit_screen.dart';
+import 'package:orgayur_vendor_app/ui/product/service_edit_screen.dart';
 
 import '../../resources/app_colors.dart';
 import '../../resources/app_strings.dart';
@@ -52,7 +53,9 @@ class ProductListScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                         Get.to(ProductEditScreen());
+                      },
                       child: CircleAvatar(
                           radius: 30,
                           backgroundColor: AppColors.primaryColor,
@@ -124,7 +127,7 @@ class ProductListScreen extends StatelessWidget {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        Get.to(ProductEditScreen());
+                        Get.to(ServiceEditScreen());
                       },
                       child: CircleAvatar(
                           radius: 30,
