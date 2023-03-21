@@ -25,6 +25,24 @@ class ProductEditScreen extends StatelessWidget {
           children: [
             item(),
             const SizedBoxH24(),
+            const Text('Product Image'),
+            const SizedBoxH24(),
+            Row(
+              children: const [
+                Image(
+                  height: 120,
+                  image: AssetImage('assets/product/cactus_plant.png'),
+                ),
+                SizedBox(
+                  width: 15,
+                ),
+                Image(
+                  height: 120,
+                  image: AssetImage('assets/product/cactus_plant.png'),
+                ),
+              ],
+            ),
+            const SizedBoxH24(),
             cropTimeTable(),
             _bottomButton()
           ],
