@@ -19,6 +19,7 @@ class Drawables {
   static const String warningCircle = "assets/icons/warningCircle.png";
   static const String arrowLeft = "assets/icons/arrow/arrowLeft.png";
   static const String arrowRight = "assets/icons/arrow/arrowRight.png";
+   static const String shovel = "assets/product/farm_shovel.png";
 
   /// orders
   static const String avatar = "assets/icons/avatar.png";

@@ -102,7 +102,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
               DecoratedBox(
                 decoration: AppDecoration.decorationColoredButtonRadius15(),
                 child: Image.asset(
-                  Drawables.yippee,
+                  Drawables.shovel,
                   width: 83,
                   height: 83,
                 ),
@@ -114,11 +114,11 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    TextPOP18W500("Sunfeast Yippee Magic ",
+                    TextPOP18W500("Go Garden Npk 19 19",
                         textAlign: TextAlign.left,
                         color: AppColors.textDarkGrayColor),
                     const SizedBox(height: 3),
-                    TextPOP14W400("Pack of 1, 50 g",
+                    TextPOP14W400("Pack of 1",
                         textAlign: TextAlign.left,
                         color: AppColors.textGrayColorMedium),
                     const SizedBox(height: 3),
@@ -166,14 +166,14 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
               children: [
                 Image.asset(Drawables.locationIcon,
                     width: 14, height: 18, fit: BoxFit.fitHeight),
-                SizedBoxW10(),
+                const SizedBoxW10(),
                 TextPOP14W300("Delivery Address",
                     color: AppColors.textDarkGrayColor.withOpacity(.4)),
               ],
             ),
-            SizedBoxH5(),
+            const SizedBoxH5(),
             TextPOP16W500("David Mathews", color: AppColors.textDarkGrayColor),
-            SizedBoxH2(),
+            const SizedBoxH2(),
             TextPOP16W400(
               "Hill View Apartments, Idachira West, Kakkanad, Ernakulam 682 333",
               color: AppColors.textDarkGrayColor.withOpacity(.7),
@@ -202,12 +202,12 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                TextPOP16W400(AppStrings.orderStatus,
+                const TextPOP16W400(AppStrings.orderStatus,
                     textAlign: TextAlign.left,
                     color: Colors.black),
                 Container(
                   height: 34,width: 150,alignment: Alignment.center,
-                  padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+                  padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
                   decoration: AppDecoration.decorationColoredButtonRadius8(
                       color: AppColors.phoneFieldLoginColor),
                   child: _orderStatusDropDown()
@@ -218,7 +218,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                TextPOP16W400(AppStrings.deliveryDate,
+                const TextPOP16W400(AppStrings.deliveryDate,
                     textAlign: TextAlign.left,
                     color: Colors.black),
                 TextPOP16W400(AppStrings.deliveryDate,
@@ -230,7 +230,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                TextPOP16W400(AppStrings.paymentMethod,
+                const TextPOP16W400(AppStrings.paymentMethod,
                     textAlign: TextAlign.left,
                     color: Colors.black),
                 TextPOP16W400(AppStrings.cashOnDelivery,
@@ -242,7 +242,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                TextPOP16W400(AppStrings.amount,
+                const TextPOP16W400(AppStrings.amount,
                     textAlign: TextAlign.left,
                     color: Colors.black),
                 TextPOP18W500("₹352",
@@ -254,7 +254,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                TextPOP16W400(AppStrings.paymentStatus,
+                const TextPOP16W400(AppStrings.paymentStatus,
                     textAlign: TextAlign.left,
                     color: Colors.black),
                 AnimatedToggle(

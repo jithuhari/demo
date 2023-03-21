@@ -153,6 +153,20 @@ class WidgetUtils {
     );
   }
 
+    static Widget linearGradiantButtonH40({String? text, Color? textColor, Gradient? gradient,  Function()? onTap}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        alignment: Alignment.center,
+        width: 120,
+        height: 44,
+        decoration: AppDecoration.decorationLinearColoredFullCornerRadius(gradient: gradient),
+        child: AppText.bodyLarge_16_w400(text, navigatorKey.currentContext!,
+            color: textColor, fontWeight: FontWeight.w600),
+      ),
+    );
+  }
+
   static Widget placeHolder(bool isPlaceHolder) {
     return Container(
       width: double.infinity,
