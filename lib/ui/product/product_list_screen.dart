@@ -1,8 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:orgayur_vendor_app/ui/product/products_edit_screen.dart';
-
 
 import '../../resources/app_colors.dart';
 import '../../resources/app_strings.dart';
@@ -29,57 +27,60 @@ class ProductListScreen extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        appBar: AppBar(
+          appBar: AppBar(
             backgroundColor: Colors.white,
             toolbarHeight: 0,
             bottom: TabBar(
-              indicatorWeight: 6,
-              indicatorColor: AppColors.primaryColor,
-            labelColor: AppColors.primaryColor,
-            tabs: const [
-            Tab(text: 'Products',),
-            Tab(text: 'Services',),
-          ]),),
-        floatingActionButton: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            GestureDetector(
-              onTap:(){
-    
-                 Get.to( ProductEditScreen() );
-              } ,
-              child: CircleAvatar(
-                radius: 30,
-                backgroundColor: AppColors.primaryColor,
-                child: const Icon(Icons.add,color: Colors.white,size: 40,)),
-            ),
-          ],
-        ),
+                indicatorWeight: 6,
+                indicatorColor: AppColors.primaryColor,
+                labelColor: AppColors.primaryColor,
+                tabs: const [
+                  Tab(
+                    text: 'Products',
+                  ),
+                  Tab(
+                    text: 'Services',
+                  ),
+                ]),
+          ),
           backgroundColor: AppColors.bgGreenColor,
-          
           body: TabBarView(
-            children: 
-              [
-                // products
-                ListView(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                padding: const EdgeInsets.all(20),
-                children: [
-                  Row(
-                    children:  [
-                      const Text('Category'),
-                      const Spacer(),
-                      SizedBox(
-                        width: 110,
-                        height: 40,
-                        child: Container(
-                          decoration: BoxDecoration(
+            children: [
+              // products
+              Scaffold(
+                floatingActionButton: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: CircleAvatar(
+                          radius: 30,
+                          backgroundColor: AppColors.primaryColor,
+                          child: const Icon(
+                            Icons.add,
                             color: Colors.white,
-                            borderRadius: BorderRadius.circular(5)
-                          ),
-                          
-                          child: const DropdownField(
+                            size: 40,
+                          )),
+                    ),
+                  ],
+                ),
+                body: ListView(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  padding: const EdgeInsets.all(20),
+                  children: [
+                    Row(
+                      children: [
+                        const Text('Category'),
+                        const Spacer(),
+                        SizedBox(
+                          width: 110,
+                          height: 40,
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(5)),
+                            child: const DropdownField(
                               hintText: AppStrings.shopType,
                               value: "Gardening",
                               options: [
@@ -87,19 +88,18 @@ class ProductListScreen extends StatelessWidget {
                                 "SuperMarket",
                               ],
                             ),
-                        ),
-                      ),
-                      const Spacer(),
-                       const Text('Sort by '),
-                       const Spacer(),
-                       SizedBox(
-                        width: 100,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(5)
                           ),
-                          child: const DropdownField(
+                        ),
+                        const Spacer(),
+                        const Text('Sort by '),
+                        const Spacer(),
+                        SizedBox(
+                          width: 100,
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(5)),
+                            child: const DropdownField(
                               hintText: AppStrings.shopType,
                               value: "Availability",
                               options: [
@@ -107,35 +107,53 @@ class ProductListScreen extends StatelessWidget {
                                 "SuperMarket",
                               ],
                             ),
-                        ),
-                      )
-                    ],
-                  ),
-                
-                  verticalScrollproducts()],
+                          ),
+                        )
+                      ],
+                    ),
+                    verticalScrollproducts()
+                  ],
+                ),
               ),
 
               //Services
 
-              ListView(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                padding: const EdgeInsets.all(20),
-                children: [
-                  Row(
-                    children:  [
-                      const Text('Category'),
-                      const Spacer(),
-                      SizedBox(
-                        width: 110,
-                        height: 40,
-                        child: Container(
-                          decoration: BoxDecoration(
+              Scaffold(
+                floatingActionButton: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Get.to(ProductEditScreen());
+                      },
+                      child: CircleAvatar(
+                          radius: 30,
+                          backgroundColor: AppColors.primaryColor,
+                          child: const Icon(
+                            Icons.add,
                             color: Colors.white,
-                            borderRadius: BorderRadius.circular(5)
-                          ),
-                          
-                          child: const DropdownField(
+                            size: 40,
+                          )),
+                    ),
+                  ],
+                ),
+                body: ListView(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  padding: const EdgeInsets.all(20),
+                  children: [
+                    Row(
+                      children: [
+                        const Text('Category'),
+                        const Spacer(),
+                        SizedBox(
+                          width: 110,
+                          height: 40,
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(5)),
+                            child: const DropdownField(
                               hintText: AppStrings.shopType,
                               value: "Gardening",
                               options: [
@@ -143,19 +161,18 @@ class ProductListScreen extends StatelessWidget {
                                 "SuperMarket",
                               ],
                             ),
-                        ),
-                      ),
-                      const Spacer(),
-                       const Text('Sort by '),
-                       const Spacer(),
-                       SizedBox(
-                        width: 100,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(5)
                           ),
-                          child: const DropdownField(
+                        ),
+                        const Spacer(),
+                        const Text('Sort by '),
+                        const Spacer(),
+                        SizedBox(
+                          width: 100,
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(5)),
+                            child: const DropdownField(
                               hintText: AppStrings.shopType,
                               value: "Availability",
                               options: [
@@ -163,12 +180,13 @@ class ProductListScreen extends StatelessWidget {
                                 "SuperMarket",
                               ],
                             ),
-                        ),
-                      )
-                    ],
-                  ),
-                
-                  verticalScrollServices()],
+                          ),
+                        )
+                      ],
+                    ),
+                    verticalScrollServices()
+                  ],
+                ),
               ),
             ],
           )),
@@ -310,8 +328,6 @@ class ProductListScreen extends StatelessWidget {
     );
   }
 
-
-
   Widget verticalScrollServices() {
     return ListView.separated(
       physics: const AlwaysScrollableScrollPhysics(),
@@ -333,8 +349,6 @@ class ProductListScreen extends StatelessWidget {
                     width: 88,
                     height: 75,
                   ),
-                 
-                 
                 ],
               ),
               const SizedBoxW15(),
