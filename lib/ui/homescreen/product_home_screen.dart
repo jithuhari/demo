@@ -6,11 +6,11 @@ import '../../resources/drawables.dart';
 import '../../util/app_appbar.dart';
 import '../../util/app_decorations.dart';
 import '../../util/widget_utils.dart';
+import '../../util/widgets/custom_drawer_widgets.dart';
 import '../earnings/earning_list.dart';
 import '../login/settings_screen.dart';
 import '../orders/orders_list_screen.dart';
 import '../product/product_list_screen.dart';
-
 
 
 class BottomNavScreenProduct extends StatefulWidget {
@@ -36,21 +36,32 @@ class _BottomNavScreenProductState extends State<BottomNavScreenProduct> {
 
     int index;
     return Scaffold(
+     
       appBar: CustomAppBar(
             autoLeading: false,
-            leadingWidget: WidgetUtils.widgets(
+            leadingWidget:Builder(
+      builder: (BuildContext context) {
+        return
+             WidgetUtils.widgets(
                 child: Container(
+                 
               margin: const EdgeInsets.all(12),
-              height: 40,
+              height:40,
               width: 40,
               decoration: AppDecoration.decorationCircle(color: Colors.red),
               clipBehavior: Clip.antiAlias,
               alignment: Alignment.center,
-              child: Image.asset(
-                Drawables.avatar,
-                fit: BoxFit.contain,
+              child: GestureDetector(
+                onTap: 
+                  () => Scaffold.of(context).openDrawer(),
+                  
+                
+                child: Image.asset(
+                  Drawables.avatar,
+                  fit: BoxFit.contain,
+                ),
               ),
-            )),
+            ),);},),
             actionWidget: WidgetUtils.widgets(
                 child: Padding(
               padding: const EdgeInsets.all(18),
@@ -75,27 +86,27 @@ class _BottomNavScreenProductState extends State<BottomNavScreenProduct> {
         items:   [
         
             BottomNavigationBarItem(
-            icon:SvgPicture.asset("assets/svg/Notepad.svg"),
+            icon:SvgPicture.asset(Drawables.ordericon),
             label: "orders",
-            activeIcon:SvgPicture.asset("assets/svg/NotepadAct.svg"),
+            activeIcon:SvgPicture.asset(Drawables.orderActIcon),
             
          
          
           ),
           BottomNavigationBarItem(
-            icon:SvgPicture.asset("assets/svg/Package.svg"),
+            icon:SvgPicture.asset(Drawables.producticon),
             label: "product",
-            activeIcon:SvgPicture.asset("assets/svg/PackageAct.svg"),),
+            activeIcon:SvgPicture.asset(Drawables.productActIcon),),
 
               BottomNavigationBarItem(
-            icon:SvgPicture.asset("assets/svg/Gear.svg"),
+            icon:SvgPicture.asset(Drawables.settingIcon),
             label: "settings",
-            activeIcon:SvgPicture.asset("assets/svg/GearAct.svg"), ),
+            activeIcon:SvgPicture.asset(Drawables.settingActIcon), ),
 
             BottomNavigationBarItem(
-            icon:SvgPicture.asset("assets/svg/Coins.svg"),
+            icon:SvgPicture.asset(Drawables.erningIcon),
             label: "Earnings",
-            activeIcon:SvgPicture.asset("assets/svg/CoinsAct.svg"),)
+            activeIcon:SvgPicture.asset(Drawables.erningActIcon),)
             ,],
 
              onTap: (int index) {
@@ -104,6 +115,135 @@ class _BottomNavScreenProductState extends State<BottomNavScreenProduct> {
           });
         },
 
-    ));
+    ),
+    drawer:const CustomDrawer(),
+   
+    );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// class BottomNavScreenProduct extends StatefulWidget {
+//   const BottomNavScreenProduct({super.key});
+
+//   @override
+//   State<BottomNavScreenProduct> createState() => _BottomNavScreenProductState();
+// }
+
+// class _BottomNavScreenProductState extends State<BottomNavScreenProduct> {
+//  int _selectedIndex = 0;
+
+//  final screens=[
+//    OrdersListScreen(),
+//    ProductListScreen(),
+//    const SettingsScreen(),
+//    const  EarningList()
+
+//  ];
+ 
+//   @override
+//   Widget build(BuildContext context) {
+
+//     int index;
+//     return Scaffold(
+//       appBar: CustomAppBar(
+//             autoLeading: false,
+//             leadingWidget: WidgetUtils.widgets(
+//                 child: Container(
+//               margin: const EdgeInsets.all(12),
+//               height: 40,
+//               width: 40,
+//               decoration: AppDecoration.decorationCircle(color: Colors.red),
+//               clipBehavior: Clip.antiAlias,
+//               alignment: Alignment.center,
+//               child: Image.asset(
+//                 Drawables.avatar,
+//                 fit: BoxFit.contain,
+//               ),
+//             )),
+//             actionWidget: WidgetUtils.widgets(
+//                 child: Padding(
+//               padding: const EdgeInsets.all(18),
+//               child: Image.asset(
+//                 Drawables.bellIcon,
+//                 height: 27,
+//                 width: 23.5,
+//               ),
+//             ))),
+//       body:screens[_selectedIndex],
+//       bottomNavigationBar: BottomNavigationBar(
+        
+//         type:BottomNavigationBarType.fixed ,
+//         backgroundColor: Colors.white,
+        
+//         currentIndex: _selectedIndex,
+//         selectedItemColor: Colors.green,
+//         unselectedItemColor: Colors.black,
+//         showSelectedLabels: true,
+//         showUnselectedLabels: true,
+
+//         items:   [
+        
+//             BottomNavigationBarItem(
+//             icon:SvgPicture.asset("assets/svg/Notepad.svg"),
+//             label: "orders",
+//             activeIcon:SvgPicture.asset("assets/svg/NotepadAct.svg"),
+            
+         
+         
+//           ),
+//           BottomNavigationBarItem(
+//             icon:SvgPicture.asset("assets/svg/Package.svg"),
+//             label: "product",
+//             activeIcon:SvgPicture.asset("assets/svg/PackageAct.svg"),),
+
+//               BottomNavigationBarItem(
+//             icon:SvgPicture.asset("assets/svg/Gear.svg"),
+//             label: "settings",
+//             activeIcon:SvgPicture.asset("assets/svg/GearAct.svg"), ),
+
+//             BottomNavigationBarItem(
+//             icon:SvgPicture.asset("assets/svg/Coins.svg"),
+//             label: "Earnings",
+//             activeIcon:SvgPicture.asset("assets/svg/CoinsAct.svg"),)
+//             ,],
+
+//              onTap: (int index) {
+//           setState(() {
+//             _selectedIndex = index;
+//           });
+//         },
+
+//     ));
+//   }
+// }

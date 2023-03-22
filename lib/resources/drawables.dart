@@ -37,4 +37,31 @@ class Drawables {
 
   ///booking details
   static const String servicingImage = "assets/images/servicingImage.png";
+
+
+  static const String drawerProfile = "assets/images/account.png";
+
+//bottomnav details
+
+static const String ordericon = "assets/svg/Notepad.svg";
+static const String orderActIcon = "assets/svg/NotepadAct.svg";
+static const String producticon = "assets/svg/Package.svg";
+static const String productActIcon = "assets/svg/PackageAct.svg";
+static const String settingIcon = "assets/svg/Gear.svg";
+static const String settingActIcon = "assets/svg/GearAct.svg";
+static const String erningIcon = "assets/svg/Coins.svg";
+static const String erningActIcon = "assets/svg/CoinsAct.svg";
+static const String bankIcon = "assets/svg/Bank.svg";
+static const String signOutIcon = "assets/svg/Bank.svg";
+
+
+//png icons
+static const String dwOrder = "assets/icons/order.png";
+static const String dwproduct = "assets/icons/product.png";
+static const String dwbank = "assets/icons/bank.png";
+static const String dwsetting = "assets/icons/setting.png";
+static const String dwsignout = "assets/icons/signout.png";
+
+
+
 }
